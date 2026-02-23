@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book DSS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+</head>
+<body>
+    <h1>Book Decision Support System</h1>
+    <form method="post">
+        <!-- Preferences Section -->
+        <div class="criteria">
+            <h3>Your Preferences</h3>
+            <label>Genres:</label><br>
+            {% for genre in genres %}
+                <input type="checkbox" name="genres" value="{{ genre }}"> {{ genre }}<br>
+            {% endfor %}
+            <br>
+            <label>Author:</label>
+            <select name="author">
+                <option value="">Any</option>
+                {% for author in authors %}
+                    <option value="{{ author }}">{{ author }}</option>
+                {% endfor %}
+            </select><br>
+            <label>Year from:</label> <input type="number" name="year_min" min="1900" max="2025"> to <input type="number" name="year_max" min="1900" max="2025"><br>
+            <label>Minimum Rating:</label> <input type="range" name="rating_min" min="0" max="5" step="0.1" value="0"> <span id="rating_val">0</span><br>
+            <label>Max Price ($):</label> <input type="number" name="price_max" step="0.01" value="100"><br>
+            <label>Age Rating:</label>
+            <select name="age_rating">
+                <option value="">Any</option>
+                {% for age in age_ratings %}
+                    <option value="{{ age }}">{{ age }}</option>
+                {% endfor %}
+            </select><br>
+            <label>Completion:</label>
+            <select name="completion">
+                <option value="">Any</option>
+                {% for comp in completions %}
+                    <option value="{{ comp }}">{{ comp }}</option>
+                {% endfor %}
+            </select><br>
+            <label>Formats:</label><br>
+            {% for fmt in formats %}
+                <input type="checkbox" name="formats" value="{{ fmt }}"> {{ fmt }}<br>
+            {% endfor %}
+            <br>
+            <label>Region:</label>
+            <select name="region">
+                <option value="">Any</option>
+                {% for reg in regions %}
+                    <option value="{{ reg }}">{{ reg }}</option>
+                {% endfor %}
+            </select><br>
+        </div>
+
+        <!-- Weights Section -->
+        <div class="criteria">
+            <h3>Importance Weights (0-10)</h3>
+            <label>Genre: <input type="number" name="weight_genre" min="0" max="10" step="0.5" value="1" class="weight"></label><br>
+            <label>Author: <input type="number" name="weight_author" min="0" max="10" step="0.5" value="1" class="weight"></label><br>
+            <label>Rating: <input type="number" name="weight_rating" min="0" max="10" step="0.5" value="1" class="weight"></label><br>
+            <label>Price: <input type="number" name="weight_price" min="0" max="10" step="0.5" value="1" class="weight"></label><br>
+            <label>Age Rating: <input type="number" name="weight_age" min="0" max="10" step="0.5" value="1" class="weight"></label><br>
+            <label>Completion: <input type="number" name="weight_completion" min="0" max="10" step="0.5" value="1" class="weight"></label><br>
+            <label>Format: <input type="number" name="weight_format" min="0" max="10" step="0.5" value="1" class="weight"></label><br>
+        </div>
+
+        <input type="submit" value="Get Recommendations">
+    </form>
+
+    <script>
+        // Update rating slider display
+        const ratingInput = document.querySelector('input[name="rating_min"]');
+        const ratingSpan = document.getElementById('rating_val');
+        ratingInput.addEventListener('input', function() {
+            ratingSpan.textContent = this.value;
+        });
+    </script>
+</body>
+</html>

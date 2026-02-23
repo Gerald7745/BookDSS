@@ -1,0 +1,60 @@
+title,author,genre,year,rating,age_rating,completion,price,formats,region
+Harry Potter and the Sorcerer's Stone,J.K. Rowling,Fantasy,1997,4.5,All Ages,"Series Completed",9.99,"Print,Ebook,Audiobook",Worldwide
+Harry Potter and the Chamber of Secrets,J.K. Rowling,Fantasy,1998,4.4,All Ages,"Series Completed",9.99,"Print,Ebook,Audiobook",Worldwide
+Harry Potter and the Prisoner of Azkaban,J.K. Rowling,Fantasy,1999,4.6,All Ages,"Series Completed",10.99,"Print,Ebook,Audiobook",Worldwide
+Harry Potter and the Goblet of Fire,J.K. Rowling,Fantasy,2000,4.6,All Ages,"Series Completed",11.99,"Print,Ebook,Audiobook",Worldwide
+Harry Potter and the Order of the Phoenix,J.K. Rowling,Fantasy,2003,4.4,All Ages,"Series Completed",12.99,"Print,Ebook,Audiobook",Worldwide
+Harry Potter and the Half-Blood Prince,J.K. Rowling,Fantasy,2005,4.5,All Ages,"Series Completed",12.99,"Print,Ebook,Audiobook",Worldwide
+Harry Potter and the Deathly Hallows,J.K. Rowling,Fantasy,2007,4.6,All Ages,"Series Completed",13.99,"Print,Ebook,Audiobook",Worldwide
+Red Rising,Pierce Brown,Sci-Fi,2014,4.2,Teen,"Series Ongoing",11.99,"Print,Ebook,Audiobook",Worldwide
+Golden Son,Pierce Brown,Sci-Fi,2015,4.4,Teen,"Series Ongoing",12.99,"Print,Ebook,Audiobook",Worldwide
+Morning Star,Pierce Brown,Sci-Fi,2016,4.5,Teen,"Series Ongoing",12.99,"Print,Ebook,Audiobook",Worldwide
+Iron Gold,Pierce Brown,Sci-Fi,2018,4.1,Teen,"Series Ongoing",14.99,"Print,Ebook,Audiobook",Worldwide
+Dark Age,Pierce Brown,Sci-Fi,2019,4.3,Teen,"Series Ongoing",15.99,"Print,Ebook,Audiobook",Worldwide
+Light Bringer,Pierce Brown,Sci-Fi,2023,4.5,Teen,"Series Ongoing",16.99,"Print,Ebook,Audiobook",Worldwide
+The Final Empire (Mistborn #1),Brandon Sanderson,Fantasy,2006,4.5,Teen,"Series Completed",10.99,"Print,Ebook,Audiobook",Worldwide
+The Well of Ascension (Mistborn #2),Brandon Sanderson,Fantasy,2007,4.3,Teen,"Series Completed",11.99,"Print,Ebook,Audiobook",Worldwide
+The Hero of Ages (Mistborn #3),Brandon Sanderson,Fantasy,2008,4.5,Teen,"Series Completed",11.99,"Print,Ebook,Audiobook",Worldwide
+The Alloy of Law (Mistborn #4),Brandon Sanderson,Fantasy,2011,4.3,Teen,"Series Completed",12.99,"Print,Ebook,Audiobook",Worldwide
+Shadows of Self (Mistborn #5),Brandon Sanderson,Fantasy,2015,4.3,Teen,"Series Completed",13.99,"Print,Ebook,Audiobook",Worldwide
+The Bands of Mourning (Mistborn #6),Brandon Sanderson,Fantasy,2016,4.4,Teen,"Series Completed",13.99,"Print,Ebook,Audiobook",Worldwide
+The Lost Metal (Mistborn #7),Brandon Sanderson,Fantasy,2022,4.4,Teen,"Series Completed",15.99,"Print,Ebook,Audiobook",Worldwide
+The Eye of the World (Wheel of Time #1),Robert Jordan,Fantasy,1990,4.3,Teen,"Series Completed",9.99,"Print,Ebook",Worldwide
+The Great Hunt (Wheel of Time #2),Robert Jordan,Fantasy,1990,4.3,Teen,"Series Completed",10.99,"Print,Ebook",Worldwide
+The Dragon Reborn (Wheel of Time #3),Robert Jordan,Fantasy,1991,4.3,Teen,"Series Completed",10.99,"Print,Ebook",Worldwide
+The Shadow Rising (Wheel of Time #4),Robert Jordan,Fantasy,1992,4.4,Teen,"Series Completed",11.99,"Print,Ebook",Worldwide
+The Fires of Heaven (Wheel of Time #5),Robert Jordan,Fantasy,1993,4.3,Teen,"Series Completed",11.99,"Print,Ebook",Worldwide
+Lord of Chaos (Wheel of Time #6),Robert Jordan,Fantasy,1994,4.4,Teen,"Series Completed",12.99,"Print,Ebook",Worldwide
+A Crown of Swords (Wheel of Time #7),Robert Jordan,Fantasy,1996,4.2,Teen,"Series Completed",12.99,"Print,Ebook",Worldwide
+Empire of Silence (Sun Eater #1),Christopher Ruocchio,Sci-Fi,2018,4.2,Mature,"Series Ongoing",14.99,"Print,Ebook,Audiobook",Worldwide
+Howling Dark (Sun Eater #2),Christopher Ruocchio,Sci-Fi,2019,4.3,Mature,"Series Ongoing",15.99,"Print,Ebook,Audiobook",Worldwide
+Demon in White (Sun Eater #3),Christopher Ruocchio,Sci-Fi,2020,4.4,Mature,"Series Ongoing",15.99,"Print,Ebook,Audiobook",Worldwide
+Kingdoms of Death (Sun Eater #4),Christopher Ruocchio,Sci-Fi,2021,4.3,Mature,"Series Ongoing",16.99,"Print,Ebook,Audiobook",Worldwide
+Ashes of Man (Sun Eater #5),Christopher Ruocchio,Sci-Fi,2022,4.4,Mature,"Series Ongoing",16.99,"Print,Ebook,Audiobook",Worldwide
+1984,George Orwell,Dystopian,1949,4.2,Mature,Standalone,9.99,"Print,Ebook,Audiobook",Worldwide
+Animal Farm,George Orwell,Political Satire,1945,4.0,Mature,Standalone,8.99,"Print,Ebook",Worldwide
+The Hobbit,J.R.R. Tolkien,Fantasy,1937,4.3,All Ages,Standalone,12.99,"Print,Ebook,Audiobook",Worldwide
+The Fellowship of the Ring,J.R.R. Tolkien,Fantasy,1954,4.4,All Ages,"Series Completed",13.99,"Print,Ebook,Audiobook",Worldwide
+The Two Towers,J.R.R. Tolkien,Fantasy,1954,4.4,All Ages,"Series Completed",13.99,"Print,Ebook,Audiobook",Worldwide
+The Return of the King,J.R.R. Tolkien,Fantasy,1955,4.5,All Ages,"Series Completed",14.99,"Print,Ebook,Audiobook",Worldwide
+Dune,Frank Herbert,Sci-Fi,1965,4.3,Teen,"Series Completed",10.99,"Print,Ebook",Worldwide
+Dune Messiah,Frank Herbert,Sci-Fi,1969,4.0,Teen,"Series Completed",11.99,"Print,Ebook",Worldwide
+Children of Dune,Frank Herbert,Sci-Fi,1976,4.1,Teen,"Series Completed",11.99,"Print,Ebook",Worldwide
+The Martian,Andy Weir,Sci-Fi,2011,4.4,Teen,Standalone,14.99,"Ebook,Audiobook",Worldwide
+Project Hail Mary,Andy Weir,Sci-Fi,2021,4.6,Teen,Standalone,15.99,"Print,Ebook,Audiobook",Worldwide
+Educated,Tara Westover,Memoir,2018,4.5,Mature,Standalone,13.99,"Print,Ebook,Audiobook",Worldwide
+Where the Crawdads Sing,Delia Owens,Fiction,2018,4.4,Teen,Standalone,13.99,"Print,Ebook",Worldwide
+Sapiens,Yuval Noah Harari,History,2011,4.4,Teen,Standalone,15.99,"Print,Ebook,Audiobook",Worldwide
+Homo Deus,Yuval Noah Harari,History,2015,4.2,Teen,Standalone,16.99,"Print,Ebook,Audiobook",Worldwide
+The Silent Patient,Alex Michaelides,Thriller,2019,4.2,Mature,Standalone,12.99,"Ebook,Audiobook",Worldwide
+The Maidens,Alex Michaelides,Thriller,2021,4.0,Mature,Standalone,13.99,"Ebook,Audiobook",Worldwide
+The Name of the Wind,Patrick Rothfuss,Fantasy,2007,4.5,Teen,"Series Ongoing",11.99,"Print,Ebook",Worldwide
+The Wise Man's Fear,Patrick Rothfuss,Fantasy,2011,4.5,Teen,"Series Ongoing",13.99,"Print,Ebook",Worldwide
+Good Omens,Neil Gaiman & Terry Pratchett,Fantasy,1990,4.3,Teen,Standalone,10.99,"Print,Ebook,Audiobook",Worldwide
+American Gods,Neil Gaiman,Fantasy,2001,4.1,Mature,Standalone,12.99,"Print,Ebook,Audiobook",Worldwide
+The Handmaid's Tale,Margaret Atwood,Dystopian,1985,4.2,Mature,Standalone,11.99,"Print,Ebook",Worldwide
+The Testaments,Margaret Atwood,Dystopian,2019,4.0,Mature,Standalone,14.99,"Print,Ebook,Audiobook",Worldwide
+Brave New World,Aldous Huxley,Dystopian,1932,4.0,Mature,Standalone,10.99,"Print,Ebook",Worldwide
+Fahrenheit 451,Ray Bradbury,Dystopian,1953,4.1,Mature,Standalone,9.99,"Print,Ebook",Worldwide
+The Road,Cormac McCarthy,Post-Apocalyptic,2006,4.0,Mature,Standalone,11.99,"Print,Ebook",Worldwide
+Station Eleven,Emily St. John Mandel,Post-Apocalyptic,2014,4.1,Teen,Standalone,12.99,"Print,Ebook,Audiobook",Worldwide

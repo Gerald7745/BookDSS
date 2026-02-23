@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 30px 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    padding: 40px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #4a3f6b;
+    margin-bottom: 20px;
+    border-left: 8px solid #ff6b6b;
+    padding-left: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+h3 {
+    color: #4a3f6b;
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+/* Form sections */
+.criteria {
+    background: #f8f9ff;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.criteria:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.2);
+}
+
+label {
+    font-weight: 500;
+    color: #555;
+    display: inline-block;
+    margin: 10px 0 5px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border 0.3s;
+    background: white;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+input[type="range"] {
+    width: 250px;
+    margin: 0 10px;
+    vertical-align: middle;
+}
+
+input[type="checkbox"] {
+    margin-right: 8px;
+    transform: scale(1.1);
+    accent-color: #667eea;
+}
+
+.weight {
+    width: 70px;
+    text-align: center;
+    border-radius: 20px;
+    border: 2px solid #ffb8b8;
+    background: #fff0f0;
+}
+
+.weight:focus {
+    border-color: #ff6b6b;
+}
+
+/* Submit button */
+input[type="submit"] {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.5);
+    background: linear-gradient(45deg, #5a6fd8, #6a3f9c);
+}
+
+/* Results table */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin: 20px 0;
+}
+
+th {
+    background: #4a3f6b;
+    color: white;
+    padding: 15px;
+    font-weight: 600;
+    text-align: left;
+    border-radius: 10px 10px 0 0;
+}
+
+td {
+    background: white;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-radius: 8px;
+}
+
+tr:hover td {
+    background: #f0f3ff;
+    transform: scale(1.01);
+    transition: 0.2s;
+}
+
+/* Score highlight */
+td:last-child {
+    font-weight: 700;
+    color: #4a3f6b;
+    background: #eaeefc;
+    border-radius: 0 8px 8px 0;
+}
+
+/* New search link */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: 2px solid #667eea;
+    border-radius: 30px;
+    transition: all 0.3s;
+}
+
+a:hover {
+    background: #667eea;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container { padding: 20px; }
+    input, select { width: 100%; }
+    .weight { width: 100%; }
+}
+
+
+
+/*body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #2c3e50;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+}
+
+h3 {
+    color: #2c3e50;
+    margin-top: 0;
+}
+
+.criteria {
+    background: #f1f9ff;
+    border-left: 5px solid #3498db;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+label {
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+    max-width: 100%;
+}
+
+input[type="range"] {
+    width: 200px;
+    vertical-align: middle;
+}
+
+.weight {
+    width: 60px;
+    text-align: center;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+button, input[type="submit"] {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover, input[type="submit"]:hover {
+    background: #2980b9;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 15px;
+}
+
+th {
+    background: #3498db;
+    color: white;
+    padding: 12px;
+    font-weight: 600;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #e9f7fe;
+}
+
+.score {
+    font-weight: bold;
+    color: #27ae60;
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.form-row {
+    margin-bottom: 10px;
+}
+
+.form-row label {
+    width: 150px;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .container { padding: 15px; }
+    input, select { width: 100%; }
+    .form-row label { width: 100%; }
+}*/
