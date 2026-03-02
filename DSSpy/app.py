@@ -17,10 +17,10 @@ def recommend(prefs, weights):
     weights: dict with keys: genre, author, rating, price, age, completion, format
     returns: DataFrame with scores sorted descending
     """
-    # Start with a copy
+    
     books = df.copy()
     
-    # --- Apply hard filters (optional) ---
+    
     if prefs.get('author'):
         books = books[books['author'].str.contains(prefs['author'], case=False, na=False)]
     if prefs.get('year_min'):
@@ -59,8 +59,7 @@ def recommend(prefs, weights):
     else:
         books['score_genre'] = 0  # no preference
     
-    # Author match: binary (if author field non-empty and matches; we already filtered by author, so all remaining match)
-    # But weight can still be applied. After filtering, all have author match = 1 if author was specified, else 0.
+
     if prefs.get('author'):
         books['score_author'] = 1
     else:
@@ -108,7 +107,6 @@ def recommend(prefs, weights):
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        # Collect preferences from form
         prefs = {
             'genres': request.form.getlist('genres'),
             'author': request.form.get('author', ''),
@@ -147,13 +145,17 @@ def index():
     unique_formats = sorted(unique_formats)
     unique_regions = df['region'].unique()
     
+    featured_books = df.nlargest(6, 'rating')[['title', 'author', 'year', 'rating']].to_dict('records')
+     
     return render_template('index.html',
                            authors=unique_authors,
                            genres=unique_genres,
                            age_ratings=unique_age,
                            completions=unique_completion,
                            formats=unique_formats,
-                           regions=unique_regions)
-
+                           regions=unique_regions,
+                           featured=featured_books)
+                            
+                            
 if __name__ == '__main__':
     app.run(debug=True)
