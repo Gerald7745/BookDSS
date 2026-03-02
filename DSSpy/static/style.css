@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
 * {
     margin: 0;
     padding: 0;
@@ -8,11 +8,25 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') 
+       no-repeat center center fixed;
+    background-size: cover;   
     min-height: 100vh;
     padding: 30px 20px;
     color: #333;
+    position: relative;
 }
+
+
+/* Dark overlay for better text readability */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
 
 .container {
     max-width: 1200px;
@@ -39,6 +53,149 @@ h3 {
     margin-bottom: 15px;
     font-weight: 600;
     font-size: 1.4rem;
+}
+
+.description {
+    background: rgba(255,255,255,0.8);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border-left: 5px solid #ff6b6b;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.collapsible {
+    background: #f8f9ff;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.collapsible-header {
+    background: #eaeefc;
+    padding: 15px 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    color: #4a3f6b;
+    border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+}
+
+.collapsible-header i {
+    transition: transform 0.3s;
+    font-size: 1.2rem;
+}
+
+.collapsible-header.active i {
+    transform: rotate(180deg);
+}
+
+.collapsible-content {
+    padding: 25px;
+    display: block;
+}
+
+.collapsible-content.collapsed {
+    display: none;
+}
+.collapsible-header {
+    background: #eaeefc;
+    padding: 15px 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    color: #4a3f6b;
+    border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+}
+
+.collapsible-header i {
+    transition: transform 0.3s;
+    font-size: 1.2rem;
+}
+
+.collapsible-header.active i {
+    transform: rotate(180deg);
+}
+
+.collapsible-content {
+    padding: 25px;
+    display: block;
+}
+
+.collapsible-content.collapsed {
+    display: none;
+}
+
+/* Book cover gallery */
+.featured-books {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.featured-books h2 {
+    color: #4a3f6b;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    border-left: 8px solid #ff6b6b;
+    padding-left: 20px;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.book-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+}
+
+.book-cover {
+    width: 100%;
+    height: 220px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    background-size: cover;
+    background-position: center;
+}
+
+.book-card h4 {
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+    color: #333;
+    padding: 0 10px;
+}
+
+.book-card p {
+    color: #666;
+    font-size: 0.9rem;
+    padding: 0 10px;
 }
 
 /* Form sections */
