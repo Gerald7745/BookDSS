@@ -28,15 +28,17 @@
                     {% endfor %}
                     <br>
                     <label>Author:</label>
-                    <select name="author">
+                    <select name="author" id="author-select">
                         <option value="">Any</option>
                         {% for author in authors %}
                             <option value="{{ author }}">{{ author }}</option>
                         {% endfor %}
-                    </select><br>
-                    <label>Year from:</label> <input type="number" name="year_min" min="1900" max="2025"> to <input type="number" name="year_max" min="1900" max="2025"><br>
+                    </select>
+                            <br>
+                    
                     <label>Minimum Rating:</label> <input type="range" name="rating_min" min="0" max="5" step="0.1" value="0"> <span id="rating_val">0</span><br>
-                    <label>Max Price ($):</label> <input type="number" name="price_max" step="0.01" value="100"><br>
+                    <label>Max Price ($):</label>  <input type="number" name="price_max" step="0.01" placeholder="e.g., 9.00">
+                    <br>
                     <label>Age Rating:</label>
                     <select name="age_rating">
                         <option value="">Any</option>
@@ -51,6 +53,10 @@
                             <option value="{{ comp }}">{{ comp }}</option>
                         {% endfor %}
                     </select><br>
+                   <label>Year from:</label> 
+                        <input type="number" name="year_min" min="1900" max="2025" placeholder="e.g., 2000">
+                        to 
+                        <input type="number" name="year_max" min="1900" max="2025" placeholder="e.g., 2020"><br>
                     <label>Formats:</label><br>
                     {% for fmt in formats %}
                         <input type="checkbox" name="formats" value="{{ fmt }}"> {{ fmt }}<br>
@@ -73,13 +79,13 @@
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="collapsible-content">
-                    <label>Genre: <input type="number" name="weight_genre" min="0" max="10" step="0.5" value="1" class="weight"></label><br>
-                    <label>Author: <input type="number" name="weight_author" min="0" max="10" step="0.5" value="1" class="weight"></label><br>
-                    <label>Rating: <input type="number" name="weight_rating" min="0" max="10" step="0.5" value="1" class="weight"></label><br>
-                    <label>Price: <input type="number" name="weight_price" min="0" max="10" step="0.5" value="1" class="weight"></label><br>
-                    <label>Age Rating: <input type="number" name="weight_age" min="0" max="10" step="0.5" value="1" class="weight"></label><br>
-                    <label>Completion: <input type="number" name="weight_completion" min="0" max="10" step="0.5" value="1" class="weight"></label><br>
-                    <label>Format: <input type="number" name="weight_format" min="0" max="10" step="0.5" value="1" class="weight"></label><br>
+                    <label>Genre: <input type="number" name="weight_genre" min="0" max="10" step="0.5" placeholder="0-1" class="weight"></label><br>
+                    <label>Author: <input type="number" name="weight_author" min="0" max="10" step="0.5" placeholder="0-1" class="weight"></label><br>
+                    <label>Rating: <input type="number" name="weight_rating" min="0" max="10" step="0.5" placeholder="0-1" class="weight"></label><br>
+                    <label>Price: <input type="number" name="weight_price" min="0" max="10" step="0.5" placeholder="0-1" class="weight"></label><br>
+                    <label>Age Rating: <input type="number" name="weight_age" min="0" max="10" step="0.5" placeholder="0-1" class="weight"></label><br>
+                    <label>Completion: <input type="number" name="weight_completion" min="0" max="10" step="0.5" placeholder="0-1" class="weight"></label><br>
+                    <label>Format: <input type="number" name="weight_format" min="0" max="10" step="0.5" placeholder="0-1" class="weight"></label><br>
                 </div>
             </div>
 
@@ -121,6 +127,68 @@
             content.classList.toggle('collapsed');
             header.classList.toggle('active');
         }
+
+        // Get the full book data from Flask (passed as a JavaScript variable)
+        const booksData = {{ books_data | tojson }};
+
+        // Helper: Get unique values for a given field after filtering the books
+        function getUniqueValues(field, filterFunction) {
+            const filtered = booksData.filter(filterFunction);
+            const values = filtered.map(book => book[field]).filter(v => v);
+            return [...new Set(values)].sort();
+        }
+
+        // Update the author dropdown based on selected genres
+        function updateAuthors() {
+            // Get all checked genre checkboxes
+            const selectedGenres = Array.from(document.querySelectorAll('input[name="genres"]:checked'))
+                                        .map(cb => cb.value);
+            
+            // Define filter: include a book if no genre is selected OR its genre is in selectedGenres
+            const filterFn = (book) => {
+                return selectedGenres.length === 0 || selectedGenres.includes(book.genre);
+            };
+            
+            // Get unique authors that satisfy the filter
+            const authors = getUniqueValues('author', filterFn);
+            
+            const authorSelect = document.getElementById('author-select');
+            const currentValue = authorSelect.value;
+            
+            // Rebuild the dropdown options
+            authorSelect.innerHTML = '<option value="">Any</option>' + 
+                                    authors.map(a => `<option value="${escapeHtml(a)}">${escapeHtml(a)}</option>`).join('');
+            
+            // Try to preserve the previously selected author if still available
+            if (authors.includes(currentValue)) {
+                authorSelect.value = currentValue;
+            } else {
+                authorSelect.value = "";
+            }
+        }
+
+        // Helper to escape HTML to prevent XSS (optional but safe)
+        function escapeHtml(str) {
+            if (!str) return str;
+            return str.replace(/[&<>]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+                return c;
+            });
+        }
+
+        // Attach event listeners to all genre checkboxes
+        document.addEventListener('DOMContentLoaded', function() {
+            const genreCheckboxes = document.querySelectorAll('input[name="genres"]');
+            genreCheckboxes.forEach(cb => {
+                cb.addEventListener('change', updateAuthors);
+            });
+            
+            // Initial update in case any genre is pre-selected (unlikely, but for completeness)
+            updateAuthors();
+        });
     </script>
 </body>
-</html>
