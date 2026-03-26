@@ -1,3 +1,5 @@
+from email.policy import default
+
 import pandas as pd
 import os
 from flask import Flask, render_template, request
@@ -119,20 +121,28 @@ def index():
             'formats': request.form.getlist('formats'),
             'region': request.form.get('region', '')
         }
-        # Collect weights (convert to float)
+        
+        
+       
+        def safe_float(value, default=1.0):
+            try:
+                return float(value) if value and value.strip() else default
+            except ValueError:
+                return default
+
         weights = {
-            'genre': float(request.form.get('weight_genre', 1)),
-            'author': float(request.form.get('weight_author', 1)),
-            'rating': float(request.form.get('weight_rating', 1)),
-            'price': float(request.form.get('weight_price', 1)),
-            'age': float(request.form.get('weight_age', 1)),
-            'completion': float(request.form.get('weight_completion', 1)),
-            'format': float(request.form.get('weight_format', 1))
-        }
+            'genre': safe_float(request.form.get('weight_genre')),
+            'author': safe_float(request.form.get('weight_author')),
+            'rating': safe_float(request.form.get('weight_rating')),
+            'price': safe_float(request.form.get('weight_price')),
+            'age': safe_float(request.form.get('weight_age')),
+            'completion': safe_float(request.form.get('weight_completion')),
+            'format': safe_float(request.form.get('weight_format'))
+            }
         # Call recommendation engine
         results = recommend(prefs, weights)
         return render_template('results.html', tables=[results.to_html(classes='data', index=False)], titles=results.columns.values)
-    
+        
     # GET: show form
     # Get unique values for dropdowns
     unique_authors = sorted(df['author'].unique())
@@ -146,6 +156,9 @@ def index():
     unique_regions = df['region'].unique()
     
     featured_books = df.nlargest(6, 'rating')[['title', 'author', 'year', 'rating']].to_dict('records')
+    
+    # Convert the entire DataFrame to a list of dictionaries for client-side filtering
+    books_data = df.to_dict(orient='records')
      
     return render_template('index.html',
                            authors=unique_authors,
@@ -154,8 +167,8 @@ def index():
                            completions=unique_completion,
                            formats=unique_formats,
                            regions=unique_regions,
-                           featured=featured_books)
-                            
+                           featured=featured_books,
+                           books_data=books_data)   
                             
 if __name__ == '__main__':
     app.run(debug=True)
